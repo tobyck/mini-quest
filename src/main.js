@@ -110,7 +110,7 @@ document.addEventListener("click", event => {
             if (inventory.includes("hammer")) {
                 showMessage([
                     "A crate! I can use my hammer to break it open.", 
-                    "Wow, a key. I wonder what it opens..."
+                    "Wow, a golden key. I wonder what it opens..."
                 ]);
                 inventory.push("key");
                 removeItem("crate");
