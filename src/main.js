@@ -45,7 +45,7 @@ document.getElementById("messageContainer").style.width = canvas.width + "px";
 document.getElementById("inventoryContainer").style.width = canvas.width + "px";
 document.getElementById("messageContainer").style.height = canvas.height + "px";
 document.getElementById("inventoryContainer").style.height = canvas.height + "px";
-messageEl.style.width = innerHeight - 300 + "px";
+messageEl.style.width = innerHeight - 240 + "px";
 
 function removeItem(item) {
     map.tiles.forEach((row, y) => {
@@ -79,7 +79,8 @@ function showMessage(messages, end = false) {
 }
 
 document.addEventListener("click", event => {
-    messageEl.style.width = innerHeight - 400 + "px";
+    if (event.target.className == "nextImg") messageEl.style.width = innerHeight - 400 + "px";
+
     var rect = canvas.getBoundingClientRect();
     var mouseRelativeToCanvas = {
         x: event.clientX - rect.left,
@@ -167,4 +168,4 @@ document.addEventListener("keyup", event => {
     }
 });
 
-showMessage(["Welcome to Mini Quest!\n\nUse WASD to move and E to see your inventory. Explore the map and when you find an item, for example a chest, click on it.\n\nHave fun!"]);
+showMessage(["Welcome to Mini Quest!\n\nUse WASD or the arrow keys to move, and E to see your inventory. Explore the map and when you find an item, for example a chest, click on it.\n\nHave fun!"]);

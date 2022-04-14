@@ -9,19 +9,19 @@ var player = {
 };
 
 // keep track of the keys that are currently pressed
-var keys = {};
+var keys = [];
 
 document.addEventListener("keydown", event => {
-    var key = event.code.slice(3).toLowerCase();
+    var key = event.code;
     if ("wasd".includes(key) && !event.metaKey) {
-        keys[key] = true;
+        keys.push(key)
         player.moving = true;
     } 
 });
 
 document.addEventListener("keyup", event => {
-    delete keys[event.code.slice(3).toLowerCase()];
-    if (Object.keys(keys).length === 0) {
+    delete keys[event.code];
+    if (keys.length == 0) {
         player.moving = false;
     }
 });
@@ -31,16 +31,16 @@ var frames = 0;
 function move() {
     if (!messageOpen && document.getElementById("inventoryContainer").hidden) {
         // update x and y
-        if (keys.w && map.tileAt(player.x, player.y - 1) != "water") {
+        if (keys.includes("KeyW" || "ArrowUp") && map.tileAt(player.x, player.y - 1) != "water") {
             map.offsetY -= player.speed;
             player.row = 1;
-        } else if (keys.s && map.tileAt(player.x, player.y + 1) != "water") {
+        } else if (keys.includes("KeyS" || "ArrowDown") && map.tileAt(player.x, player.y + 1) != "water") {
             map.offsetY += player.speed;
             player.row = 0;
-        } if (keys.a && map.tileAt(player.x - 1, player.y) != "water") {
+        } if (keys.includes("KeyA" || "ArrowLeft") && map.tileAt(player.x - 1, player.y) != "water") {
             map.offsetX -= player.speed;
             player.row = 2;
-        } else if (keys.d && map.tileAt(player.x + 1, player.y) != "water") {
+        } else if (keys.includes("KeyD" || "ArrowRight") && map.tileAt(player.x + 1, player.y) != "water") {
             map.offsetX += player.speed;
             player.row = 3;
         }
