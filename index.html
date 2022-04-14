@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Mini Quest</title>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <div id="messageContainer" hidden>
+        <p id="messageText"></p>
+        <button id="nextButton"><img src="img/next.png" alt="next" class="nextImg"></button>
+    </div>
+    <div id="inventoryContainer" hidden>
+        <p>Inventory</p>
+        <p id="emptyInventory" hidden>Your inventory is empty.</p>
+        <canvas id="inventoryCanvas"></canvas>
+    </div>
+</body>
+<script src="src/main.js"></script>
+<script src="src/map.js"></script>
+<script src="src/motion.js"></script>
+</html>

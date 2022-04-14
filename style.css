@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+#gameCanvas, #messageContainer, p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "VT323", monospace;
+    font-size: 30px;
+}
+
+#gameCanvas {
+    box-shadow: 0 0 50px #555;
+}
+
+#messageContainer {
+    background-color: white;
+}
+
+p {
+    top: 40%;
+    text-align: center;
+}
+
+a {
+    color: #85b839;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #949494;
+}
+
+#nextButton {
+    background-color: #eee;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    position: fixed;
+    bottom: 50px;
+    right: 60px;
+}
+
+.nextImg {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    image-rendering: crisp-edges;
+}
+
+#nextButton:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+#inventoryContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    font-family: "VT323", monospace;
+}
+
+#inventoryContainer p {
+    top: 30%;
+    font-size: 40px;
+}
+
+#emptyInventory {
+    font-size: 30px !important;
+    top: 45% !important;
+    width: 100%;
+}
+
+#inventoryCanvas {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
