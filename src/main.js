@@ -42,8 +42,8 @@ var messageEl = document.getElementById("messageText"),
     nextButton = document.getElementById("nextButton");
 
 document.getElementById("messageContainer").style.width = canvas.width + "px";
-document.getElementById("inventoryContainer").style.width = canvas.width + "px";
 document.getElementById("messageContainer").style.height = canvas.height + "px";
+document.getElementById("inventoryContainer").style.width = canvas.width + "px";
 document.getElementById("inventoryContainer").style.height = canvas.height + "px";
 messageEl.style.width = innerHeight - 240 + "px";
 
@@ -69,7 +69,7 @@ function showMessage(messages, end = false) {
                 messageContainer.hidden = true;
                 messageOpen = false;
             } else {
-                messageEl.innerHTML = "Thanks for playing!<br><br>Click <a onclick='location.reload()' href='#'>here</a> to play again, or <a href='https://github.com/tobyck/mini-quest'>here</a> to see the code.";
+                messageEl.innerHTML = "Thanks for playing!<br><br>Click <a onclick='location.reload()' href=''>here</a> to play again, or <a href='https://github.com/tobyck/mini-quest'>here</a> to see the source code.";
                 nextButton.hidden = true;
             }
         } else {
