@@ -114,7 +114,7 @@ document.addEventListener("click", event => {
                 inventory.push("key");
                 removeItem("crate");
             } else {
-                showMessage(["A crate! If only I had a hammer..."]);
+                showMessage(["A crate! If only I had a hammer to break it open with..."]);
             }
             break;
         case "note chest":
