@@ -12,15 +12,14 @@ var player = {
 var keys = [];
 
 document.addEventListener("keydown", event => {
-    var key = event.code;
-    if ("wasd".includes(key) && !event.metaKey) {
-        keys.push(key)
+    if ([..."wasd".split(""), "up", "down", "left", "right"].includes(event.code.replace(/[A-Z][^A-Z]+/, "").toLowerCase()) && !event.metaKey) {
+        keys.push(event.code)
         player.moving = true;
     } 
 });
 
 document.addEventListener("keyup", event => {
-    delete keys[event.code];
+    keys = keys.filter(key => key != event.code);
     if (keys.length == 0) {
         player.moving = false;
     }
@@ -31,16 +30,16 @@ var frames = 0;
 function move() {
     if (!messageOpen && document.getElementById("inventoryContainer").hidden) {
         // update x and y
-        if (keys.includes("KeyW" || "ArrowUp") && map.tileAt(player.x, player.y - 1) != "water") {
+        if (keys.filter(key => ["KeyW", "ArrowUp"].includes(key)).length && map.tileAt(player.x, player.y - 1) != "water") {
             map.offsetY -= player.speed;
             player.row = 1;
-        } else if (keys.includes("KeyS" || "ArrowDown") && map.tileAt(player.x, player.y + 1) != "water") {
+        } else if (keys.filter(key => ["KeyS", "ArrowDown"].includes(key)).length && map.tileAt(player.x, player.y + 1) != "water") {
             map.offsetY += player.speed;
             player.row = 0;
-        } if (keys.includes("KeyA" || "ArrowLeft") && map.tileAt(player.x - 1, player.y) != "water") {
+        } if (keys.filter(key => ["KeyA", "ArrowLeft"].includes(key)).length && map.tileAt(player.x - 1, player.y) != "water") {
             map.offsetX -= player.speed;
             player.row = 2;
-        } else if (keys.includes("KeyD" || "ArrowRight") && map.tileAt(player.x + 1, player.y) != "water") {
+        } else if (keys.filter(key => ["KeyD", "ArrowRight"].includes(key)).length && map.tileAt(player.x + 1, player.y) != "water") {
             map.offsetX += player.speed;
             player.row = 3;
         }
