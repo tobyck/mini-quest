@@ -139,7 +139,7 @@ document.addEventListener("click", event => {
             if (inventory.includes("note")) {
                 showMessage([
                     "A chest! Could the code on the note unlock it?",
-                    "It worked, aweso - hold on, there's $50,000!"
+                    "It worked, grea - hold on, there's $50,000!"
                 ], true);
             } else {
                 showMessage(["Ooh, a chest. Oh, it's locked with a code."]);
