@@ -1,6 +1,6 @@
 ## Mini Quest
 ### Description
-Mini quest is basically a cross between The Mine (a CSS only game by Jamie Coulter) and Smae by @chunkybanana. It's only my second project with HTML canvas so it's quite basic.
+Mini quest is basically a cross between The Mine (a CSS only game by Jamie Coulter) and Smae by @chunkybanana. It's only my second project with HTML canvas so it's quite basic. Play at [miniquest.surge.sh](https://miniquest.surge.sh)
 
 ### Acknoledgements
 - [@jcoulterdesign](https://codepen.io/jcoulterdesign) for making the CSS only game called [The Mine](https://codepen.io/jcoulterdesign/pen/NOMeEb?editors=1010) which inspired this project.
