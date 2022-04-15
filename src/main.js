@@ -151,19 +151,17 @@ document.addEventListener("keyup", event => {
     if (event.code == "KeyE" && !messageOpen) {
         document.getElementById("inventoryContainer").hidden = !document.getElementById("inventoryContainer").hidden;
         var invCanvas = document.getElementById("inventoryCanvas")
-        invCanvas.width = (displaySize + 10) * inventory.length + 8;
+        invCanvas.width = (displaySize + 10) * 4 + 8;
         var invCtx = invCanvas.getContext("2d");
         invCtx.imageSmoothingEnabled = false;
-        invCtx.clearRect(0, 0, innerHeight - 300, innerHeight - 300);
-        document.getElementById("emptyInventory").hidden = true;
-        if (inventory.length > 0) {
-            inventory.forEach((item, index) => {
-                invCtx.lineWidth = 4;
-                invCtx.strokeRect(index * (displaySize + 10) + 4, 4, displaySize + 10, displaySize + 10);
-                invCtx.drawImage(images.items, tiles[item].x, tiles[item].y, 16, 16, index * (displaySize + 10) + 9, 9, displaySize, displaySize);
-            });
-        } else {
-            document.getElementById("emptyInventory").hidden = false;
+        invCtx.clearRect(0, 0, invCanvas.width, invCanvas.height);
+
+        for (var i = 0; i < 4; i++) {
+            invCtx.lineWidth = 4;
+            invCtx.strokeRect(i * (displaySize + 10) + 4, 4, displaySize + 10, displaySize + 10);
+            if (i < inventory.length) {
+                invCtx.drawImage(images.items, tiles[inventory[i]].x, tiles[inventory[i]].y, 16, 16, i * (displaySize + 10) + 9, 9, displaySize, displaySize);
+            }
         }
     }
 });
