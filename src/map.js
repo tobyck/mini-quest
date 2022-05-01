@@ -62,7 +62,7 @@ function generateMap() {
     }
 }
 
-// function that renders the map to the canvas
+// oject of the tiles and their offsets in their respective spritesheets
 var tiles = {
     "water": { x: 0, y: 32 },
     "empty grass": { x: 0, y: 0 },
@@ -83,6 +83,7 @@ var tiles = {
     "note": { x: 0, y: 16 },
 }
 
+// function that renders the map to the canvas
 function renderMap() {
     map.tiles.forEach((row, y) => {
         row.forEach((tile, x) => {
@@ -96,26 +97,10 @@ function renderMap() {
                 ctx.drawImage(images.items, offsetX, offsetY, 16, 16, x * displaySize - map.offsetX, y * displaySize - map.offsetY, displaySize, displaySize);
             }
 
-            switch (tile) {
-                case "water":
-                case "empty grass":
-                case "short grass":
-                case "long grass":
-                case "leafy grass":
-                case "flowers1":
-                case "flowers2":
-                case "stone":
-                case "dirt":
-                    drawTile(tiles[tile].x, tiles[tile].y);
-                    break;
-                case "apple":
-                case "empty":
-                case "hammer":
-                case "crate":
-                case "note chest":
-                case "money":
-                    drawItem(tiles[tile].x, tiles[tile].y);
-                    break;
+            if (["water", "empty grass", "short grass", "long grass", "leafy grass", "flowers1", "flowers2", "stone", "dirt"].includes(tile)) {
+                drawTile(tiles[tile].x, tiles[tile].y);
+            } else if (["apple", "empty", "hammer", "crate", "note chest", "money"].includes(tile)) {
+                drawItem(tiles[tile].x, tiles[tile].y);
             }
         });
     });

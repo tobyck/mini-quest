@@ -3,7 +3,7 @@ var canvas = document.getElementById("gameCanvas");
 canvas.width = canvas.height = innerHeight - 120;
 var ctx = canvas.getContext("2d");
 ctx.imageSmoothingEnabled = false;
-var displaySize = 55;
+var displaySize = canvas.width / 10;
 
 // create an object of all images required
 var filenames = ["simpleMap.png", "player.png", "groundTiles.png", "items.png"].map(name => "img/" + name),
@@ -45,7 +45,7 @@ document.getElementById("messageContainer").style.width = canvas.width + "px";
 document.getElementById("messageContainer").style.height = canvas.height + "px";
 document.getElementById("inventoryContainer").style.width = canvas.width + "px";
 document.getElementById("inventoryContainer").style.height = canvas.height + "px";
-messageEl.style.width = innerHeight - 240 + "px";
+messageEl.style.width = "440px";
 
 function removeItem(item) {
     map.tiles.forEach((row, y) => {
@@ -79,7 +79,7 @@ function showMessage(messages, end = false) {
 }
 
 document.addEventListener("click", event => {
-    if (event.target.className == "nextImg") messageEl.style.width = innerHeight - 400 + "px";
+    if (event.target.className == "nextImg") messageEl.style.width = "300px";
 
     var rect = canvas.getBoundingClientRect();
     var mouseRelativeToCanvas = {
